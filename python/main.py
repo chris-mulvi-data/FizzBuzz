@@ -6,6 +6,7 @@ import basic_fizzbuzz
 import extensible_fizzbuzz
 import four_lines_fizzbuzz 
 import oneline_fizzbuzz
+import ui_fizzbuzz
 
 VERSIONS: list[dict]= [
     {
@@ -23,6 +24,10 @@ VERSIONS: list[dict]= [
     {
         "label": "four lines",
         "method": four_lines_fizzbuzz.four_line_fizzbuzz
+    },
+    {
+        "label": "UI FizzBuzz",
+        "method": ui_fizzbuzz.ui_fizzbuzz
     }
 ]
 
