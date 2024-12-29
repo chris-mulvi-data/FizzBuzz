@@ -5,25 +5,26 @@ An implementation of FizzBuzz that alows a player to play against the computer r
 import sys
 from typing import Any
 
-
-RULES:dict[int, str] = {
+RULES: dict[int, str] = {
     3: "Fizz",
     5: "Buzz",
 }
 
-CONF: dict[str, Any] = {
-    "playerFirst": True,
-    "level": 0
-}
+CONF: dict[str, Any] = {"playerFirst": True, "level": 0}
 
-QUIT = False
+QUIT: bool = False
+
+PLAYER_TURN_COUNT: int = 0
+PLAYER_CORRECT_COUNT: int = 0
+
 
 def vs_fizzbuzz(max_number: int):
     _display_menu()
     _play(max_number)
-    # TODO: computer's turn should print in blue
-    # TODO: player's turn will clear and reprint in either red or green for write or wrong answers.
+    score = int((PLAYER_CORRECT_COUNT / PLAYER_TURN_COUNT) * 100)
+    print(f"\nScore:{score}%")
     return
+
 
 def _display_menu():
     """
@@ -40,19 +41,25 @@ def _display_menu():
     print()
     return
 
-def _play(max_number:int):
+
+def _play(max_number: int):
+    global PLAYER_TURN_COUNT
+    global QUIT
     player_turn = False
-    for number in range(1, max_number+ 1) :
+    for number in range(1, max_number + 1):
         if QUIT:
             return
         if player_turn:
             _user_turn(number)
-        else :
+            PLAYER_TURN_COUNT += 1
+        else:
             _computer_turn(number)
         player_turn = not player_turn  # flip the value each turn
 
+
 def _user_turn(number: int):
     correct_answer = _get_answer(number)
+    global PLAYER_CORRECT_COUNT
     global QUIT
     try:
         players_answer = input()
@@ -61,15 +68,19 @@ def _user_turn(number: int):
         prError("Bye!")
         return
 
-    if players_answer != correct_answer :
+    if players_answer != correct_answer:
         _delete_line()
         prError(f"Wrong! - {correct_answer}")
+    else:
+        PLAYER_CORRECT_COUNT += 1
     return
+
 
 def _computer_turn(number: int):
     computers_answer = _get_answer(number)
     print(computers_answer)
     return
+
 
 def _get_answer(number: int) -> str:
     """
@@ -89,11 +100,12 @@ def _delete_line():
     clears the last line in stdout
     """
 
-    #cursor up one line
-    sys.stdout.write('\x1b[1A')
+    # cursor up one line
+    sys.stdout.write("\x1b[1A")
 
-    #delete last line
-    sys.stdout.write('\x1b[2K')
+    # delete last line
+    sys.stdout.write("\x1b[2K")
+
 
 def prError(msg: str):
     print(f"\033[91m{msg}\033[0m")
