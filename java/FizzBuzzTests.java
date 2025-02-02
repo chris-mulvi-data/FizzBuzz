@@ -1,0 +1,6 @@
+/**
+ * FizzBuzzTests
+ */
+public class FizzBuzzTests {
+
+}

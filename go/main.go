@@ -20,5 +20,7 @@ func main() {
 		fizzbuzz.BasicFizzBuzz(maxNumber)
 	case "extensibleFizzbuzz":
 		fizzbuzz.ExtensibleFizzBuzz(maxNumber)
+	case "uiFizzbuzz":
+		fizzbuzz.UiFizzbuzz(maxNumber)
 	}
 }

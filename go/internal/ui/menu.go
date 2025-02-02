@@ -17,4 +17,9 @@ var MenuOptions []MenuOption = []MenuOption{
 		Description: "A version of FizzBuzz that can have rules added and removed easily.",
 		Name:        "extensibleFizzbuzz",
 	},
+	{
+		Label:       "UI FizzBuzz",
+		Description: "A version of FizzBuzz you can set the rules for.",
+		Name:        "uiFizzbuzz",
+	},
 }
