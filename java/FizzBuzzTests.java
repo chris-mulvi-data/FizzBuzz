@@ -1,6 +1,0 @@
-/**
- * FizzBuzzTests
- */
-public class FizzBuzzTests {
-
-}
