@@ -1,3 +1,5 @@
+<!DOCTYPE html>
+
 <html>
 
 <head>
@@ -8,14 +10,35 @@
 
 <body>
     <h1 id="title">FizzBuzz... On the web!</h1>
-    <button id="start-button">Start</button>
     <div id="controls">
+
         <h2>Settings</h2>
-        <input type="number" id="factor-one" placeholder="Enter a number...">
-        <input id="word-one" placeholder="Enter a word...">
-        <input type="number" id="factor-two" placeholder="Enter a number...">
-        <input id="word-two" placeholder="Enter a word...">
-        <input type="number" id="play-to" placeholder="Number to stop at..." </div>
+        <input name="factorOne" data-type="number" id="factor-one" placeholder="Enter a number...">
+        <input name="wordOne" id="word-one" placeholder="Enter a word...">
+        <input name="factorTwo" data-type="number" id="factor-two" placeholder="Enter a number...">
+        <input name="wordTwo" id="word-two" placeholder="Enter a word...">
+        <input name="playTo" data-type="number" id="play-to" placeholder="Number to stop at...">
+        <button id="reset-all">Reset</button>
+
+    </div>
+
+    <button id="start-button">
+        <p>Start</p>
+        <span id="dynamic-outputs">
+            <div>
+                <span id="output-number-one"></span>
+                <span id="output-word-one"></span>
+            </div>
+            <div>
+                <span id="output-number-two"></span>
+                <span id="output-word-two"></span>
+            </div>
+        </span>
+    </button>
+
+    <div id="results-output">
+    </div>
+
 </body>
 <script src="scripts/jquery-3.7.1.slim.min.js"></script>
 <script src="scripts/fizzbuzz.js"></script>
