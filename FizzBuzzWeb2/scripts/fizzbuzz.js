@@ -84,6 +84,7 @@ function get_inputs() {
 
 function fizzBuzz(data) {
     for (let i = 1; i <= data.playTo; i++) {
+        console.log(`${i} is prime: ${isPrime(i)}`)
         let result = ""
         if (i % data.factorOne == 0) {
             result = result + data.wordOne
@@ -154,3 +155,16 @@ function resetAll() {
     $("#start-button").show();
 }
 
+
+/**
+    * determines if a number is prime or not
+    */
+function isPrime(number) {
+
+    for (let i = 2; i < number; i++) {
+        if (number % i == 0) {
+            return false
+        }
+    }
+    return true
+}
